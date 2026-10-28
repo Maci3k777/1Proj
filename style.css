@@ -34,5 +34,34 @@ main {
    
 }
 
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    background-color: #111111;
+    color: #ff2a2a;
+    height: 50px;
+    justify-content: space-around;
+}
+
+a {
+    color: #ff2a2a;
+    text-decoration: none;
+    line-height: 50px;
+}
+
+#about {
+    background-color: #f4f4f4;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+#teams {
+    background-color: #f4f4f4;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+
 
 
