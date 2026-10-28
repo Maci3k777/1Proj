@@ -1,10 +1,9 @@
 * {
-    background-color: #ACB;
     font-family: Arial, sans-serif;
 }
 
-header {
-    background-color: #333;
+header, footer {
+    background-color: #007be6;
     color: #fff;
     padding: 5px;
     text-align: center;
@@ -14,26 +13,25 @@ main {
     padding: 20px;
 }
 
-.first {
-    background-color: #f2f2f2;
+#first {
+    background-color: #fed41c;
     padding: 20px;
     margin-bottom: 20px;
 }
-.second {
-    background-color: #e6e6e6;
+#second {
+    background-color: #686868;
     padding: 20px;
     margin-bottom: 20px;
 }
-.third {
-    background-color: #d9d9d9;
+#third {
+    background-color: #703100;
     padding: 20px;
     margin-bottom: 20px;
 }
-footer {
-    background-color: #333;
-    color: #fff;
-    padding: 10px;
-    text-align: center;
+.podium {
+    align-items: center;
+    display: flex;
+   
 }
 
 
