@@ -1,3 +1,14 @@
+.active {
+    background-color: gold;
+}
+
+.star {
+    color: gold;
+    font-size: 24px;
+    margin-right: 5px;
+}
+
+
 * {
     font-family: Arial, sans-serif;
 }
