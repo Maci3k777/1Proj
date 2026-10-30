@@ -44,6 +44,7 @@
             <li><a href="#standings">Standings</a></li>
             <li><a href="#favorite">Favorite Driver</a></li>
             <li><a href="#teams">Teams</a></li>
+            <li><a href="#points-battle">Points Battle</a></li>
         </ul>
     </nav>
     <main>
@@ -124,6 +125,20 @@
             </ul>
         </section>
 
+        <section id="points-battle" aria-labelledby="points-battle-title">
+            <p class="section-kicker">RACE BY RACE</p>
+            <h2 id="points-battle-title">The points battle</h2>
+            <p class="chart-notice">Illustrative sample progression only — these race-by-race values are examples, not official results.</p>
+            <ul id="chart-legend" aria-label="Team chart color key"></ul>
+            <div class="chart-scroll">
+                <svg id="team-points-chart" viewBox="0 0 960 400" role="img" aria-labelledby="chart-title chart-description">
+                    <title id="chart-title">Illustrative team points after each race</title>
+                    <desc id="chart-description">A line chart comparing cumulative team points over six sample races. The values are illustrative and are not official race results.</desc>
+                    <g id="chart-grid"></g>
+                    <g id="chart-lines"></g>
+                </svg>
+            </div>
+        </section>
 
     </main>
     <footer>

@@ -75,6 +75,122 @@ if (favoriteDriverSelect && favoriteStatsCard) {
     });
 }
 
+const teamPointsChart = document.querySelector("#team-points-chart");
+const chartGrid = document.querySelector("#chart-grid");
+const chartLines = document.querySelector("#chart-lines");
+const chartLegend = document.querySelector("#chart-legend");
+
+if (teamPointsChart && chartGrid && chartLines && chartLegend) {
+    const raceLabels = ["Race 1", "Race 2", "Race 3", "Race 4", "Race 5", "Race 6"];
+    const chartData = [
+        { team: "Mercedes", points: [90, 188, 275, 367, 480, 607] },
+        { team: "Ferrari", points: [72, 145, 220, 292, 375, 474] },
+        { team: "Red Bull", points: [52, 120, 190, 255, 310, 355] },
+        { team: "McLaren", points: [70, 140, 210, 270, 330, 355] },
+        { team: "Racing Bulls", points: [20, 39, 50, 62, 80, 102] },
+        { team: "Alpine", points: [12, 25, 33, 45, 57, 69] },
+        { team: "Haas", points: [4, 8, 15, 20, 25, 30] },
+        { team: "Audi", points: [3, 6, 11, 15, 19, 23] },
+        { team: "Williams", points: [2, 3, 5, 7, 9, 12] },
+        { team: "Aston Martin", points: [1, 2, 3, 4, 5, 7] },
+        { team: "Cadillac", points: [0, 0, 0, 0, 0, 0] }
+    ];
+    const svgNamespace = "http://www.w3.org/2000/svg";
+    const chart = { left: 62, right: 940, top: 24, bottom: 330, maxPoints: 700 };
+
+    function createSvgElement(name, attributes, text) {
+        const element = document.createElementNS(svgNamespace, name);
+
+        for (const [attribute, value] of Object.entries(attributes)) {
+            element.setAttribute(attribute, String(value));
+        }
+
+        if (text) {
+            element.textContent = text;
+        }
+
+        return element;
+    }
+
+    function xPosition(index) {
+        return chart.left + index * (chart.right - chart.left) / (raceLabels.length - 1);
+    }
+
+    function yPosition(points) {
+        return chart.bottom - points * (chart.bottom - chart.top) / chart.maxPoints;
+    }
+
+    for (let points = 0; points <= chart.maxPoints; points += 100) {
+        const y = yPosition(points);
+        chartGrid.append(
+            createSvgElement("line", {
+                x1: chart.left,
+                x2: chart.right,
+                y1: y,
+                y2: y,
+                class: "chart-grid-line"
+            }),
+            createSvgElement("text", {
+                x: chart.left - 12,
+                y: y + 4,
+                "text-anchor": "end",
+                class: "chart-axis-label"
+            }, String(points))
+        );
+    }
+
+    raceLabels.forEach((label, index) => {
+        chartGrid.append(createSvgElement("text", {
+            x: xPosition(index),
+            y: chart.bottom + 28,
+            "text-anchor": "middle",
+            class: "chart-axis-label"
+        }, label));
+    });
+
+    for (const { team, points } of chartData) {
+        const teamCard = [...document.querySelectorAll("#teams li")].find((card) =>
+            card.querySelector("strong").textContent.trim() === team
+        );
+
+        if (!teamCard) {
+            throw new Error(`Could not find standings card for ${team}`);
+        }
+
+        const color = getComputedStyle(teamCard).getPropertyValue("--team-accent").trim();
+        const path = points.map((value, index) =>
+            `${index === 0 ? "M" : "L"} ${xPosition(index)} ${yPosition(value)}`
+        ).join(" ");
+
+        chartLines.append(
+            createSvgElement("path", {
+                d: path,
+                fill: "none",
+                stroke: color,
+                "stroke-width": "3",
+                "stroke-linecap": "round",
+                "stroke-linejoin": "round"
+            }),
+            ...points.map((value, index) => createSvgElement("circle", {
+                cx: xPosition(index),
+                cy: yPosition(value),
+                r: "4",
+                fill: color
+            }))
+        );
+
+        const legendItem = document.createElement("li");
+        const swatch = document.createElement("span");
+        swatch.className = "chart-swatch";
+        swatch.style.backgroundColor = color;
+        swatch.setAttribute("aria-hidden", "true");
+        const label = document.createElement("span");
+        label.textContent = team;
+        legendItem.append(swatch, label);
+        chartLegend.append(legendItem);
+    }
+}
+
 const title = document.querySelector("#title");
 const message = document.querySelector("#message");
 
