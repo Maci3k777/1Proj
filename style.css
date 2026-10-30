@@ -170,53 +170,76 @@ main {
 }
 
 .podium {
+    --podium-accent: #d7a928;
+    --podium-tint: #fff8df;
     display: flex;
     flex: 1 1 0;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     max-width: 250px;
-    padding: 18px 12px 12px;
-    border: 1px solid rgb(0 0 0 / 12%);
-    border-bottom: 8px solid rgb(0 0 0 / 22%);
-    border-radius: 10px 10px 3px 3px;
-    color: #172033;
+    gap: 4px;
+    padding: 18px 12px 14px;
+    border: 1px solid var(--border);
+    border-bottom: 4px solid var(--podium-accent);
+    border-radius: 12px;
+    background: linear-gradient(180deg, var(--podium-tint), var(--surface) 75%);
+    color: var(--text);
     text-align: center;
-    box-shadow: 0 8px 16px rgb(0 0 0 / 12%);
+    box-shadow: 0 6px 18px rgb(28 39 56 / 6%);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.podium:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgb(28 39 56 / 12%);
 }
 
 #first {
     order: 2;
     height: 230px;
-    background: linear-gradient(145deg, #ffe979, #e5b900);
+    --podium-accent: #c99a17;
+    --podium-tint: #fff5d4;
 }
 
 #second {
     order: 1;
     height: 180px;
-    background: linear-gradient(145deg, #edf0f4, #aab2bb);
+    --podium-accent: #8994a4;
+    --podium-tint: #eef1f5;
 }
 
 #third {
     order: 3;
     height: 145px;
-    background: linear-gradient(145deg, #e6ad82, #a85d36);
+    --podium-accent: #a96843;
+    --podium-tint: #f5e9e1;
 }
 
 .podium h2 {
     margin: 0;
     font-size: clamp(0.9rem, 2.5vw, 1.2rem);
     line-height: 1.25;
+    overflow-wrap: anywhere;
 }
 
 .podium p {
-    margin: 6px 0 10px;
+    margin: 2px 0 6px;
+    color: var(--muted);
     font-size: 0.88rem;
     font-weight: 700;
 }
 
 .place-number {
-    font-size: 2.2rem;
+    display: grid;
+    width: 48px;
+    height: 48px;
+    place-items: center;
+    border: 1px solid var(--podium-accent);
+    border-radius: 50%;
+    background: var(--surface);
+    color: var(--text);
+    font-size: 1.7rem;
     font-weight: 800;
     line-height: 1;
 }
@@ -585,6 +608,22 @@ body.dark-mode #teams .team-cadillac {
 
 body.dark-mode #standings {
     box-shadow: 0 8px 26px rgb(0 0 0 / 18%);
+}
+
+body.dark-mode #first {
+    --podium-tint: #39321d;
+}
+
+body.dark-mode #second {
+    --podium-tint: #252e3b;
+}
+
+body.dark-mode #third {
+    --podium-tint: #39291f;
+}
+
+body.dark-mode .podium:hover {
+    box-shadow: 0 10px 24px rgb(0 0 0 / 28%);
 }
 
 body.dark-mode #teams .team-points {
