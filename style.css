@@ -32,27 +32,53 @@ main {
 }
 
 #first {
-    background-color: #fed41c;
-    padding: 20px;
-    margin-bottom: 20px;
+    order: 2;
+    height: 230px;
+    background: linear-gradient(135deg, #ffe45c, #e5b900);
 }
+
 #second {
-    background-color: #686868;
-    padding: 20px;
-    margin-bottom: 20px;
+    order: 1;
+    height: 180px;
+    background: linear-gradient(135deg, #e0e4e8, #aab2bb);
 }
+
 #third {
-    background-color: #703100;
-    padding: 20px;
-    margin-bottom: 20px;
+    order: 3;
+    height: 145px;
+    background: linear-gradient(135deg, #d99567, #a85d36);
 }
+
 .podium {
     display: flex;
+    flex: 1 1 0;
+    max-width: 250px;
+    box-sizing: border-box;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 20vh;
+    padding: 18px 12px 10px;
+    margin-bottom: 0;
+    border: 1px solid rgb(0 0 0 / 15%);
+    border-bottom: 8px solid rgb(0 0 0 / 25%);
+    border-radius: 10px 10px 2px 2px;
+    box-shadow: 0 8px 16px rgb(0 0 0 / 18%);
+    color: #1b1b1b;
+    text-align: center;
+}
 
-   
+.podium h2 {
+    font-size: clamp(0.9rem, 2.5vw, 1.25rem);
+}
+
+.podium p {
+    margin: 4px 0 8px;
+}
+
+.place-number {
+    font-size: 2rem;
+    font-weight: bold;
+    line-height: 1;
 }
 
 nav ul {
@@ -91,16 +117,51 @@ a:hover {
 #teams ul {
     list-style-type: none;
     padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+    gap: 12px;
+}
 
+#teams li {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 6px 12px;
+    padding: 14px 16px;
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    border-left: 4px solid #ff2a2a;
+    border-radius: 6px;
+    line-height: 1.4;
+}
+
+#teams li strong {
+    font-size: 1.05rem;
+}
+
+#teams li > span:first-of-type {
+    grid-column: 1 / -1;
+    color: #555555;
+}
+
+#teams .team-points {
+    grid-column: 2;
+    grid-row: 1;
+    padding: 4px 8px;
+    background-color: #f0f0f0;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    white-space: nowrap;
 }
 
 #standings {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 12px;
+    padding: 20px 10px 12px;
     border-bottom: 1px solid #ccc;
-    justify-content: space-evenly;
 }
 
 #top {
@@ -119,6 +180,20 @@ body.dark-mode {
 body.dark-mode #about,
 body.dark-mode #teams {
     background-color: #242424;
+}
+
+body.dark-mode #teams li {
+    background-color: #303030;
+    border-color: #484848;
+    border-left-color: #ff2a2a;
+}
+
+body.dark-mode #teams li > span:first-of-type {
+    color: #cccccc;
+}
+
+body.dark-mode #teams .team-points {
+    background-color: #454545;
 }
 
 body.dark-mode #standings {
