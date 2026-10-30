@@ -22,9 +22,23 @@ body {
 header, footer {
     background-color: #1b1b1b;
     color: #ff2a2a;
-    padding: 5px;
+    padding: 10px 16px;
     text-align: center;
-    
+    border-bottom: 3px solid #ff2a2a;
+}
+
+header h1 {
+    margin: 8px 0;
+    letter-spacing: 1px;
+}
+
+footer {
+    border-top: 3px solid #ff2a2a;
+    border-bottom: 0;
+}
+
+footer p {
+    margin: 6px 0;
 }
 
 main {
@@ -83,18 +97,22 @@ main {
 
 nav ul {
     list-style-type: none;
-    padding: 0;
+    margin: 0;
+    padding: 0 12px;
     display: flex;
     background-color: #111111;
     color: #ff2a2a;
     height: 50px;
     justify-content: space-around;
+    align-items: center;
 }
 
 a {
     color: #ff2a2a;
     text-decoration: none;
     line-height: 50px;
+    padding: 0 10px;
+    transition: color 0.2s;
 }
 
 #about {
