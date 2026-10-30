@@ -11,6 +11,70 @@ darkModeButton.addEventListener("click", () => {
     darkModeButton.setAttribute("aria-pressed", String(isDarkMode));
 });
 
+const favoriteDriverSelect = document.querySelector("#favorite-driver");
+const favoriteStatsCard = document.querySelector("#favorite-stats");
+
+if (favoriteDriverSelect && favoriteStatsCard) {
+    const favoriteDrivers = new Map();
+    const podiumFinishes = new Map();
+
+    document.querySelectorAll("#standings .podium").forEach((podium) => {
+        const driverName = podium.querySelector("h2").textContent.trim();
+        const finish = podium.querySelector("p").textContent.trim();
+        podiumFinishes.set(driverName, finish);
+    });
+
+    let previousPoints = null;
+    let teamPosition = 0;
+
+    document.querySelectorAll("#teams li").forEach((teamCard, index) => {
+        const teamName = teamCard.querySelector("strong").textContent.trim();
+        const drivers = teamCard.querySelector(":scope > span:first-of-type").textContent.trim().split(" and ");
+        const teamPoints = teamCard.querySelector(".team-points").textContent.trim();
+        const pointsValue = Number(teamPoints.replace(/[^\d]/g, ""));
+
+        if (pointsValue !== previousPoints) {
+            teamPosition = index + 1;
+            previousPoints = pointsValue;
+        }
+
+        for (const driverName of drivers) {
+            favoriteDrivers.set(driverName, {
+                teamName,
+                teamPosition,
+                teamPoints,
+                podiumFinish: podiumFinishes.get(driverName) || "Not featured in the podium above"
+            });
+
+            const option = document.createElement("option");
+            option.value = driverName;
+            option.textContent = driverName;
+            favoriteDriverSelect.append(option);
+        }
+    });
+
+    favoriteDriverSelect.addEventListener("change", () => {
+        const driverName = favoriteDriverSelect.value;
+        const stats = favoriteDrivers.get(driverName);
+
+        if (!stats) {
+            favoriteStatsCard.hidden = true;
+            return;
+        }
+
+        const ordinalSuffix = stats.teamPosition === 1 ? "st" :
+            stats.teamPosition === 2 ? "nd" :
+            stats.teamPosition === 3 ? "rd" : "th";
+
+        document.querySelector("#favorite-name").textContent = driverName;
+        document.querySelector("#favorite-team").textContent = stats.teamName;
+        document.querySelector("#favorite-position").textContent = `${stats.teamPosition}${ordinalSuffix}`;
+        document.querySelector("#favorite-points").textContent = stats.teamPoints;
+        document.querySelector("#favorite-podium").textContent = stats.podiumFinish;
+        favoriteStatsCard.hidden = false;
+    });
+}
+
 const title = document.querySelector("#title");
 const message = document.querySelector("#message");
 

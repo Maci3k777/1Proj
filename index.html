@@ -42,6 +42,7 @@
         <ul>
             <li><a href="#about">About</a></li>
             <li><a href="#standings">Standings</a></li>
+            <li><a href="#favorite">Favorite Driver</a></li>
             <li><a href="#teams">Teams</a></li>
         </ul>
     </nav>
@@ -74,6 +75,35 @@
                 <p>3rd Place</p>
                 <span class="place-number" aria-hidden="true">3</span>
             </div>
+        </section>
+
+        <section id="favorite" aria-labelledby="favorite-title">
+            <p class="section-kicker">YOUR DRIVER, YOUR GRID</p>
+            <h2 id="favorite-title">Pick your favorite driver</h2>
+            <p class="favorite-intro">Choose a driver to see their team, team points, and any podium finish shown above.</p>
+            <label for="favorite-driver">Driver</label>
+            <select id="favorite-driver">
+                <option value="">Select a driver</option>
+            </select>
+            <article id="favorite-stats" aria-live="polite" hidden>
+                <h3 id="favorite-name"></h3>
+                <p id="favorite-team"></p>
+                <dl>
+                    <div>
+                        <dt>Team standing</dt>
+                        <dd id="favorite-position"></dd>
+                    </div>
+                    <div>
+                        <dt>Team points</dt>
+                        <dd id="favorite-points"></dd>
+                    </div>
+                    <div>
+                        <dt>Podium finish</dt>
+                        <dd id="favorite-podium"></dd>
+                    </div>
+                </dl>
+                <p class="favorite-note">Team points and standings are team totals. Podium finish is only shown for the three drivers featured above.</p>
+            </article>
         </section>
 
         <section id="teams" aria-labelledby="teams-title">

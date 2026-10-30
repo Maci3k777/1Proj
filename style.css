@@ -221,6 +221,97 @@ main {
     line-height: 1;
 }
 
+#favorite {
+    margin-top: 28px;
+    padding: 26px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: var(--surface);
+    box-shadow: 0 8px 26px rgb(28 39 56 / 5%);
+}
+
+#favorite h2 {
+    margin: 0;
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    line-height: 1.2;
+    letter-spacing: -0.035em;
+}
+
+.favorite-intro {
+    margin: 8px 0 20px;
+    color: var(--muted);
+}
+
+#favorite label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+#favorite-driver {
+    width: min(100%, 380px);
+    padding: 11px 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--surface-muted);
+    color: var(--text);
+    font: inherit;
+}
+
+#favorite-stats {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--accent);
+    border-radius: 10px;
+    background: var(--surface-muted);
+}
+
+#favorite-stats[hidden] {
+    display: none;
+}
+
+#favorite-stats h3 {
+    margin: 0;
+    font-size: 1.35rem;
+}
+
+#favorite-team {
+    margin: 2px 0 16px;
+    color: var(--muted);
+}
+
+#favorite-stats dl {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 10px;
+    margin: 0;
+}
+
+#favorite-stats dl div {
+    padding: 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--surface);
+}
+
+#favorite-stats dt {
+    color: var(--muted);
+    font-size: 0.82rem;
+}
+
+#favorite-stats dd {
+    margin: 4px 0 0;
+    font-weight: 800;
+}
+
+.favorite-note {
+    margin: 14px 0 0;
+    color: var(--muted);
+    font-size: 0.82rem;
+}
+
 #teams {
     margin-top: 42px;
     padding: 26px;
@@ -485,6 +576,10 @@ body.dark-mode #teams li:hover {
 
     #teams {
         margin-top: 28px;
+        padding: 20px 16px;
+    }
+
+    #favorite {
         padding: 20px 16px;
     }
 }
