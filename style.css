@@ -13,6 +13,12 @@
     font-family: Arial, sans-serif;
 }
 
+body {
+    background-color: #ffffff;
+    color: #1b1b1b;
+    transition: background-color 0.2s, color 0.2s;
+}
+
 header, footer {
     background-color: #1b1b1b;
     color: #ff2a2a;
@@ -103,4 +109,23 @@ a:hover {
     align-items: center;
     flex-direction: column-reverse;
     gap: 30px;
+}
+
+body.dark-mode {
+    background-color: #121212;
+    color: #f4f4f4;
+}
+
+body.dark-mode #about,
+body.dark-mode #teams {
+    background-color: #242424;
+}
+
+body.dark-mode #standings {
+    border-bottom-color: #555;
+}
+
+body.dark-mode #dark {
+    background-color: #f4f4f4;
+    color: #1b1b1b;
 }
