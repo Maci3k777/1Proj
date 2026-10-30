@@ -257,6 +257,66 @@ main {
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
+#teams .team-mercedes {
+    --team-tint: #e5f3f0;
+    --team-accent: #008f86;
+}
+
+#teams .team-ferrari {
+    --team-tint: #fae9e9;
+    --team-accent: #d71920;
+}
+
+#teams .team-red-bull {
+    --team-tint: #e9edf8;
+    --team-accent: #263d78;
+}
+
+#teams .team-mclaren {
+    --team-tint: #fff0e2;
+    --team-accent: #e87500;
+}
+
+#teams .team-racing-bulls {
+    --team-tint: #e8f0fb;
+    --team-accent: #4774c5;
+}
+
+#teams .team-alpine {
+    --team-tint: #f8e9f1;
+    --team-accent: #d83a83;
+}
+
+#teams .team-haas {
+    --team-tint: #eceef1;
+    --team-accent: #b8202a;
+}
+
+#teams .team-audi {
+    --team-tint: #efedeb;
+    --team-accent: #a9182b;
+}
+
+#teams .team-williams {
+    --team-tint: #e8effb;
+    --team-accent: #2459b5;
+}
+
+#teams .team-aston-martin {
+    --team-tint: #e8f2ed;
+    --team-accent: #00665e;
+}
+
+#teams .team-cadillac {
+    --team-tint: #f2efe6;
+    --team-accent: #9a7b37;
+}
+
+#teams li[class^="team-"] {
+    border-left-color: var(--team-accent);
+    background: var(--team-tint);
+}
+
 #teams li:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 16px rgb(28 39 56 / 8%);
@@ -311,6 +371,50 @@ body.dark-mode {
     --muted: #a7b2c3;
     --border: #303b4b;
     --header-bg: #0a0f18;
+}
+
+body.dark-mode #teams .team-mercedes {
+    --team-tint: #19332f;
+}
+
+body.dark-mode #teams .team-ferrari {
+    --team-tint: #3a2229;
+}
+
+body.dark-mode #teams .team-red-bull {
+    --team-tint: #202c49;
+}
+
+body.dark-mode #teams .team-mclaren {
+    --team-tint: #3a2b1d;
+}
+
+body.dark-mode #teams .team-racing-bulls {
+    --team-tint: #202f49;
+}
+
+body.dark-mode #teams .team-alpine {
+    --team-tint: #392437;
+}
+
+body.dark-mode #teams .team-haas {
+    --team-tint: #30272c;
+}
+
+body.dark-mode #teams .team-audi {
+    --team-tint: #30272a;
+}
+
+body.dark-mode #teams .team-williams {
+    --team-tint: #202b42;
+}
+
+body.dark-mode #teams .team-aston-martin {
+    --team-tint: #1d332e;
+}
+
+body.dark-mode #teams .team-cadillac {
+    --team-tint: #332f23;
 }
 
 body.dark-mode #standings {
