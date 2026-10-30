@@ -96,3 +96,11 @@ a:hover {
     border-bottom: 1px solid #ccc;
     justify-content: space-evenly;
 }
+
+#top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column-reverse;
+    gap: 30px;
+}
