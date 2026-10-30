@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
-    <title>Maciek Site</title>
+    <meta name="theme-color" content="#111827">
+    <title>F1 Standings | The Grid</title>
 </head>
 <body>
     <!-- EXERCISES
@@ -33,9 +34,11 @@
     <hr>
 -->
     <header>
-        <h1>F1 Standings</h1>
+        <p class="eyebrow">THE 2026 SEASON</p>
+        <h1>F1 <span>Standings</span></h1>
+        <p class="header-subtitle">The race for the top starts here.</p>
     </header>
-    <nav>
+    <nav aria-label="Main navigation">
         <ul>
             <li><a href="#about">About</a></li>
             <li><a href="#standings">Standings</a></li>
@@ -44,17 +47,18 @@
     </nav>
     <main>
 
-        <div id="top">
+        <section id="top" aria-labelledby="about-title">
             <div id="about">
-                <h2>About this site</h2>
-                <p>This page displays the current Formula 1 driver standings.</p>
+                <p class="section-kicker">BUILT FOR RACE FANS</p>
+                <h2 id="about-title">Every point tells a story.</h2>
+                <p>Follow the drivers chasing the podium and see how the teams stack up across the season.</p>
             </div>
 
             <div id="button">
-                <button id="dark">Dark Mode</button>
+                <button id="dark" type="button" aria-pressed="false">Dark Mode</button>
             </div>
-        </div>
-        <div id="standings">
+        </section>
+        <section id="standings" aria-label="Driver podium">
             <div id="first" class="podium">
                 <h2>Kimi Antonelli</h2>
                 <p>1st Place</p>
@@ -70,10 +74,11 @@
                 <p>3rd Place</p>
                 <span class="place-number" aria-hidden="true">3</span>
             </div>
-       </div>
+        </section>
 
-       <div id="teams">
-            <h2>Teams</h2>
+        <section id="teams" aria-labelledby="teams-title">
+            <p class="section-kicker">CONSTRUCTOR CHAMPIONSHIP</p>
+            <h2 id="teams-title">Team standings</h2>
             <ul>
                 <li><strong>Mercedes</strong><span>Kimi Antonelli and George Russell</span><span class="team-points">607 points</span></li>
                 <li><strong>Ferrari</strong><span>Lewis Hamilton and Charles Leclerc</span><span class="team-points">474 points</span></li>
@@ -87,12 +92,12 @@
                 <li><strong>Aston Martin</strong><span>Fernando Alonso and Lance Stroll</span><span class="team-points">7 points</span></li>
                 <li><strong>Cadillac</strong><span>Valtteri Bottas and Sergio Pérez</span><span class="team-points">0 points</span></li>
             </ul>
-        </div>
+        </section>
 
 
     </main>
     <footer>
-        <p>&copy; 2026 F1 Standings. All rights reserved.</p>
+        <p>&copy; 2026 F1 Standings <span aria-hidden="true">&bull;</span> Made for race fans</p>
     </footer>
 </body>
 </html>
